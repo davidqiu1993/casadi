@@ -1,0 +1,2 @@
+# CasADi Playground
+
