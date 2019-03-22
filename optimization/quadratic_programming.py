@@ -13,7 +13,6 @@ def example_individual_variables():
 
     opti.solver('ipopt')
 
-
     sol = opti.solve()
 
     print(sol.value(x))
@@ -21,13 +20,13 @@ def example_individual_variables():
 
 
 def example_matrix():
-    opti = ca.Opti()
+    opti = ca.Opti() # initialize an optimizer instance
 
     R = ca.DM([ [3.0, 1.0, -0.1],
                [ 1.0, 5.0,  0.5],
                [-0.1, 0.5,  2.0]])
 
-    u = opti.variable(3)
+    u = opti.variable(3) # define a variable within the optimizer instance
 
     opti.minimize( ca.mtimes(u.T, ca.mtimes(R, u)) )
     opti.subject_to( u[0] + u[1] + u[2] >= 5.0 )
